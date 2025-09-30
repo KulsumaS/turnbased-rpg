@@ -37,13 +37,13 @@ public class PlayerContoller : MonoBehaviour
 
     void FixedUpdate() // Ensure that the framerate of different devices do not effect the velocity of the player
     {
-        rb.linearVelocity = new Vector2(playerMoveDirection.x * movespeed,
+        rb.linearVelocity = new Vector3(playerMoveDirection.x * movespeed,
                 playerMoveDirection.y * movespeed);
     }
 
     private void Animate()
     {
-        if(input.magnitude > 0.1f || input.magnitude < -0.1f) //if the the input is grster than one or less than then movemnt is true
+        if(playerMoveDirection.magnitude > 0.1f || playerMoveDirection.magnitude < -0.1f) //if the the input is grster than one or less than then movemnt is true
         {
             moving = true;
         }
@@ -60,5 +60,5 @@ public class PlayerContoller : MonoBehaviour
         anim.SetBool("Moving", moving); 
     }
     
-}
+} 
   
