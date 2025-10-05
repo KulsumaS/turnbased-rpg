@@ -7,17 +7,19 @@ public class PlayerContoller : MonoBehaviour
     
     [SerializeField] private Rigidbody2D rb;
    
-    private float x;
-    private float y;
+    public float x;
+    public float y;
     public float movespeed;// allows us to controll the speed of the player
-    public Vector3 playerMoveDirection;
+    public Vector2 playerMoveDirection;
+    private bool moving;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
-    private Vector2 input;
-    private bool moving;
+   
+    
 // Update is called once per frame
     private void Update()
     {
@@ -26,7 +28,7 @@ public class PlayerContoller : MonoBehaviour
     }
 
     
-    void GetInput()
+    private void GetInput()
     {//get x an y values, it will always be either +1,-1 or 0
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
@@ -43,7 +45,7 @@ public class PlayerContoller : MonoBehaviour
 
     private void Animate()
     {
-        if(playerMoveDirection.magnitude > 0.1f || playerMoveDirection.magnitude < -0.1f) //if the the input is grster than one or less than then movemnt is true
+        if(playerMoveDirection.magnitude > 0.1f ) //if the the input is grster than one or less than then movemnt is true
         {
             moving = true;
         }
@@ -51,13 +53,16 @@ public class PlayerContoller : MonoBehaviour
         {
             moving = false;
         }
+        
+        anim.SetBool("Moving", moving);
+        
         if (moving)
         {
-            anim.SetFloat("X", x);
-            anim.SetFloat("Y", y);
-            
+            anim.SetFloat("X", Input.GetAxis("Horizontal"));
+            anim.SetFloat("Y", Input.GetAxis("Vertical"));
+
         }
-        anim.SetBool("Moving", moving); 
+        
     }
     
 } 
