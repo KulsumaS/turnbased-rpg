@@ -1,0 +1,41 @@
+using UnityEngine;
+
+public class FighterAction : MonoBehaviour
+{
+    private GameObject enemy;
+    private GameObject hero;
+    
+    
+    private GameObject meleePrefab;
+   
+    private GameObject rangePrefab;
+   
+    private Sprite faceIcon;
+    
+    private GameObject currentAttack;
+    private GameObject meleeAttack;
+    private GameObject rangeAttack;
+
+    public void SelectAttack(string btn)
+    {
+        GameObject victim = hero;
+        if (tag == "Hero")
+        {
+            victim = enemy; 
+        }
+
+        if (btn.CompareTo("melee") == 0)
+        {
+            Debug.Log("Melee Attack!");
+        }
+        else if (btn.CompareTo("range") == 0)
+        {
+            Debug.Log("Range Attack!");
+        }
+        else
+        {
+            Debug.Log("Run");
+        }
+
+    }
+}
