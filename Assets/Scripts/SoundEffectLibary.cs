@@ -1,5 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio; 
+using System;
+using Random = UnityEngine.Random;
 
 public class SoundEffectLibary : MonoBehaviour
 {

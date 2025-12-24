@@ -12,9 +12,12 @@ public class PlayerContoller : MonoBehaviour
     public float movespeed;// allows us to controll the speed of the player
     public Vector2 playerMoveDirection;
     private bool moving;
+    private bool playingFootsteps = false;
+    public float footstepSpeed = 1.0f; // the time between each foot step sound
 
     private void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -25,6 +28,14 @@ public class PlayerContoller : MonoBehaviour
     {
         GetInput();
         Animate();
+        if (playerMoveDirection.magnitude > 0.1f )
+        {
+            StartFootsteps();
+        }
+        else
+        {
+            StopFootsteps();
+        }
     }
 
     
@@ -63,6 +74,25 @@ public class PlayerContoller : MonoBehaviour
 
         }
         
+    }
+
+    void StartFootsteps()
+    {
+        playingFootsteps = true;
+        InvokeRepeating(nameof(PlayFootstep),0f,footstepSpeed);
+        //means that the footsteps sound keeps repeating and doesnt just play once
+        
+    }
+
+    void StopFootsteps()
+    {
+        playingFootsteps = false;
+        CancelInvoke(nameof(PlayFootstep));
+    }
+
+    void PlayFootstep()
+    {
+      SoundEffectManager.Play("Footsteps");
     }
     
 } 
