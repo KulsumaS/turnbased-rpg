@@ -13,7 +13,7 @@ public class PlayerContoller : MonoBehaviour
     public Vector2 playerMoveDirection;
     private bool moving;
     private bool playingFootsteps = false;
-    public float footstepSpeed = 1.0f; // the time between each foot step sound
+    public float footstepSpeed = 5.0f; // the time between each foot step sound
 
     private void Start()
     {
@@ -92,7 +92,8 @@ public class PlayerContoller : MonoBehaviour
 
     void PlayFootstep()
     {
-      SoundEffectManager.Play("Footsteps");
+      SoundEffectManager.Play("Footsteps",true);
+      
     }
     
 } 

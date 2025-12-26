@@ -5,11 +5,11 @@ public class FighterAction : MonoBehaviour
     private GameObject enemy;
     private GameObject hero;
     
-    
+    [SerializeField]
     private GameObject meleePrefab;
-   
+   [SerializeField]
     private GameObject rangePrefab;
-   
+   [SerializeField]
     private Sprite faceIcon;
     
     private GameObject currentAttack;
