@@ -14,7 +14,7 @@ public class MakeButton : MonoBehaviour
         hero = GameObject.FindGameObjectWithTag("Hero");
     }
 
-    private void AttachCallback(string btn)
+    public void AttachCallback(string btn)
     {
         if (btn.CompareTo("Meleebt") == 0)
         {

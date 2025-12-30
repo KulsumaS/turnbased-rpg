@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FighterAction : MonoBehaviour
 {
@@ -26,11 +28,11 @@ public class FighterAction : MonoBehaviour
 
         if (btn.CompareTo("melee") == 0)
         {
-            Debug.Log("Melee Attack!");
+            meleeAttack.GetComponent<AttackScript>().Attack(victim);//gets the attack function form the attack dkrip
         }
         else if (btn.CompareTo("range") == 0)
         {
-            Debug.Log("Range Attack!");
+            rangeAttack.GetComponent<AttackScript>().Attack(victim);
         }
         else
         {
