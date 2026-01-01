@@ -1067,7 +1067,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.8000488, y: -336.02}
+  m_AnchoredPosition: {x: 3.8000488, y: -336.01996}
   m_SizeDelta: {x: 43.13, y: -636.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &526498620
@@ -1550,9 +1550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c864446cd838f3c4fa1148034dd129cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FighterStats
-  animator: {fileID: 0}
-  healthFill: {fileID: 0}
-  magicFill: {fileID: 0}
+  animator: {fileID: 848913568}
+  healthFill: {fileID: 2015643179}
+  magicFill: {fileID: 1055005357}
   health: 100
   magic: 25
   melee: 12
