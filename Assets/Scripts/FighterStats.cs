@@ -15,7 +15,7 @@ public class FighterStats : MonoBehaviour, IComparable
     public float health;
     public float magic;
     public float melee;
-    public float range;
+    public float magicRange;
     public float defense;
     public float speed;
     public float experience;
@@ -51,7 +51,7 @@ public class FighterStats : MonoBehaviour, IComparable
         
     }
 
-    public void RecieveDamage(float damage)
+    public void ReceiveDamage(float damage)
     {
         health -= damage;
         animator.Play("Damage");

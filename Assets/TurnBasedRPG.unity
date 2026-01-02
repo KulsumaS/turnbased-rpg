@@ -2830,7 +2830,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3649999433050867863, guid: 4a117596630ddf341b5d246a3db5fb74, type: 3}
       propertyPath: m_Name
-      value: 'RangePrefab '
+      value: 'WRangePrefab '
       objectReference: {fileID: 0}
     - target: {fileID: 5989095748257311581, guid: 4a117596630ddf341b5d246a3db5fb74, type: 3}
       propertyPath: owner
@@ -3130,7 +3130,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3649999433050867863, guid: 4a117596630ddf341b5d246a3db5fb74, type: 3}
       propertyPath: m_Name
-      value: 'RangePrefab '
+      value: 'ERangePrefab '
       objectReference: {fileID: 0}
     - target: {fileID: 5989095748257311581, guid: 4a117596630ddf341b5d246a3db5fb74, type: 3}
       propertyPath: owner
@@ -3267,7 +3267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8611939910492641117, guid: 8fd411861b307fa48b9d350d88a24f37, type: 3}
       propertyPath: m_Name
-      value: MeleePrefab
+      value: EMeleePrefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3833,7 +3833,7 @@ PrefabInstance:
       objectReference: {fileID: 931037982}
     - target: {fileID: 8611939910492641117, guid: 8fd411861b307fa48b9d350d88a24f37, type: 3}
       propertyPath: m_Name
-      value: MeleePrefab
+      value: WMeleePrefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
