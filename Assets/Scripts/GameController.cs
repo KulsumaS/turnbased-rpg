@@ -2,11 +2,13 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Transactions;
 using UnityEngine.SocialPlatforms;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     private List<FighterStats> fighterStats;
     [SerializeField] private GameObject battleMenu;// battle menu is the option menu that lets the player attack
+    public Text battleText;
     void Start()
     {
         // allows as to decide whether the enemy or player goes first based on speed
@@ -30,6 +32,7 @@ public class GameController : MonoBehaviour
 
    public void NextTurn()
    {
+       battleText.gameObject.SetActive(false);//hides the battletext
        FighterStats currentFighterStats = fighterStats[0];
        fighterStats.Remove(currentFighterStats);
        if (!currentFighterStats.GetDead())

@@ -17,7 +17,7 @@ public class FighterAction : MonoBehaviour
     private GameObject currentAttack;
    
 
-    private void Start()
+     void Awake()
     {
         hero = GameObject.FindGameObjectWithTag("Hero");
         enemy = GameObject.FindGameObjectWithTag("Enemy");

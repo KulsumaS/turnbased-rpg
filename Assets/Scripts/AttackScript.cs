@@ -16,13 +16,7 @@ public class AttackScript : MonoBehaviour
     private FighterStats attackerStats;
     private FighterStats targetStats;
     private float damage = 0.0f;
-    private float xMagicNewScale;
-    private Vector2 magicScale;
-
-    private void Start()
-    {
-        magicScale = GameObject.Find("HeroMagicFill").GetComponent<RectTransform>().localScale;
-    }
+    
     
     public void Attack(GameObject victim)
     {
@@ -33,20 +27,32 @@ public class AttackScript : MonoBehaviour
         if (attackerStats.magic >= magicCost)//checks if the attacker has enough mana to cast a spell
         {
             float multiplier = Random.Range(minAttackMultiplier, maxAttackMultiplier);
-            attackerStats.updateMagicFill(magicCost);
-
+          
             damage = multiplier * attackerStats.melee;
             if (magicAttack)// changes the way damage is calculated if the attack is amgical
             {
                 damage = multiplier * attackerStats.magicRange;
-                attackerStats.magic -= magicCost;
+                
+                
+            
             }
             float defenseMultiplier = Random.Range(minDefenseMultiplier, maxDefenseMultiplier);
             damage = Mathf.Max(0, damage - (defenseMultiplier * targetStats.defense));// takes away the targets defense away from the damge delt
             owner.GetComponent<Animator>().Play(animationName);
-            targetStats.ReceiveDamage(damage);
+            targetStats.ReceiveDamage(Mathf.CeilToInt(damage));
+            attackerStats.updateMagicFill(magicCost);
+        }
+        else
+        {
+            Invoke("SkipTurnContinueGame",2);
         }
         
+
+
+    }
+    void SkipTurnContinueGame()
+    {
+        GameObject.Find("GameController").GetComponent<GameController>().NextTurn();
     }
    
     

@@ -331,6 +331,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49831096}
   m_CullTransparentMesh: 1
+--- !u!1 &180429064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3649999433050867863, guid: 4a117596630ddf341b5d246a3db5fb74, type: 3}
+  m_PrefabInstance: {fileID: 1875617127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &183898570
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +431,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 526498619}
+  - {fileID: 520716067}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -894,6 +900,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   battleMenu: {fileID: 1811318632}
+  battleText: {fileID: 520716065}
+--- !u!1 &520716064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 520716067}
+  - component: {fileID: 520716066}
+  - component: {fileID: 520716065}
+  m_Layer: 5
+  m_Name: BattleMessage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &520716065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520716064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 71a55b0538d48354b87afab937af74d2, type: 3}
+    m_FontSize: 70
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 000
+--- !u!222 &520716066
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520716064}
+  m_CullTransparentMesh: 1
+--- !u!224 &520716067
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520716064}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 183898574}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 21, y: 179}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &521567900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,7 +1198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.8000488, y: -336.0199}
+  m_AnchoredPosition: {x: 3.8000488, y: -336.01984}
   m_SizeDelta: {x: 43.13, y: -636.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &526498620
@@ -1601,9 +1687,9 @@ MonoBehaviour:
   health: 100
   magic: 25
   melee: 12
-  magicRange: 0
+  magicRange: 15
   defense: 10
-  speed: 2
+  speed: 6
   experience: 0
   nextActTurn: 0
 --- !u!114 &848913567
@@ -1618,8 +1704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4a3387ed87dd441830ac86726f08f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FighterAction
-  meleePrefab: {fileID: 0}
-  rangePrefab: {fileID: 0}
+  meleePrefab: {fileID: 1097478440}
+  rangePrefab: {fileID: 180429064}
   faceIcon: {fileID: 0}
 --- !u!95 &848913568
 Animator:
@@ -2315,6 +2401,11 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!1 &1097478440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8611939910492641117, guid: 8fd411861b307fa48b9d350d88a24f37, type: 3}
+  m_PrefabInstance: {fileID: 1884112464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1299174777
 GameObject:
   m_ObjectHideFlags: 0

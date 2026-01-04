@@ -10,6 +10,7 @@ public class FighterStats : MonoBehaviour, IComparable
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject healthFill;//represents players health left
     [SerializeField] private GameObject magicFill;// represents players mana left
+
     
     [Header("Stats")]
     public float health;
@@ -37,8 +38,10 @@ public class FighterStats : MonoBehaviour, IComparable
 
     private float xNewHealthScale;
     private float xNewMagicScale;
-
-    private void Start()
+    
+    private GameObject GameControllerObj;
+    
+    void Awake()
     {
         healthTransform = healthFill.GetComponent<RectTransform>();
         healthScale = healthFill.transform.localScale;
@@ -48,6 +51,8 @@ public class FighterStats : MonoBehaviour, IComparable
 
         startHealth = health;
         startMagic = magic;
+        
+        GameControllerObj = GameObject.Find("GameController");
         
     }
 
@@ -63,24 +68,42 @@ public class FighterStats : MonoBehaviour, IComparable
             Destroy(healthFill);
             Destroy(gameObject);
         }
-        else
+        else if (damage > 0)
         {
             xNewHealthScale = healthScale.x * (health / startHealth);
             healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
         }
+
+        if (damage > 0)
+        {
+            GameControllerObj.GetComponent<GameController>().battleText.gameObject.SetActive(true);//text becomes visible
+            GameControllerObj.GetComponent<GameController>().battleText.text = damage.ToString();
+        }
+        
+        Invoke(nameof(ContinueGame), 2);
     }
 
+  
     public void updateMagicFill(float cost)
     {
-        magic -= cost;
-        xNewMagicScale = magicScale.x * (magic / startMagic);
-        magicFill.transform.localScale = new Vector2(xNewMagicScale, magicScale.y);
+        if (cost > 0)
+        {
+            magic -= cost;
+            xNewMagicScale = magicScale.x * (magic / startMagic);
+            magicFill.transform.localScale = new Vector2(xNewMagicScale, magicScale.y);  
+        }
+      
     }
 
     public bool GetDead()// returns the status of the player
     {
         return dead;
     }
+    void ContinueGame()
+    {
+        GameObject.Find("GameController").GetComponent<GameController>().NextTurn();
+    }
+
 
     public void CalculateNextTurn(int currentTurn)
     {
