@@ -77,10 +77,22 @@ public class FighterStats : MonoBehaviour, IComparable
         magicFill.transform.localScale = new Vector2(xNewMagicScale, magicScale.y);
     }
 
+    public bool GetDead()// returns the status of the player
+    {
+        return dead;
+    }
+
+    public void CalculateNextTurn(int currentTurn)
+    {
+        nextActTurn = currentTurn + Mathf.CeilToInt(100f/speed);
+    }
+    
     public int CompareTo(object otherStats)
     {
         int nex = nextActTurn.CompareTo(((FighterStats)otherStats).nextActTurn);
         return nex;
     }
+    
+    
 }
 
