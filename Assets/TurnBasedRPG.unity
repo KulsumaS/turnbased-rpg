@@ -1198,7 +1198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.8000488, y: -336.01984}
+  m_AnchoredPosition: {x: 3.8000488, y: -336.01978}
   m_SizeDelta: {x: 43.13, y: -636.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &526498620
@@ -1684,10 +1684,10 @@ MonoBehaviour:
   animator: {fileID: 848913568}
   healthFill: {fileID: 2015643179}
   magicFill: {fileID: 1055005357}
-  health: 100
+  health: 60
   magic: 25
-  melee: 12
-  magicRange: 15
+  melee: 5
+  magicRange: 10
   defense: 10
   speed: 6
   experience: 0
@@ -2015,10 +2015,10 @@ MonoBehaviour:
   healthFill: {fileID: 1551693239}
   magicFill: {fileID: 30890222}
   health: 100
-  magic: 50
+  magic: 60
   melee: 10
-  magicRange: 15
-  defense: 4
+  magicRange: 20
+  defense: 6
   speed: 5
   experience: 0
   nextActTurn: 0
