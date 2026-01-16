@@ -95,6 +95,11 @@ public class PlayerContoller : MonoBehaviour
       SoundEffectManager.Play("Footsteps",true);
       
     }
+
+    private void OnTriggerEnter2D(Collider2D collider)// called when object collides with a trigger
+    {
+        Debug.Log("TRigger!");
+    }
     
 } 
   
