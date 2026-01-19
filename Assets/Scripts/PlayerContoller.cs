@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerContoller : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerContoller : MonoBehaviour
     private bool moving;
     private bool playingFootsteps = false;
     public float footstepSpeed = 5.0f; // the time between each foot step sound
+    private float random;
 
     private void Start()
     {
@@ -36,6 +38,7 @@ public class PlayerContoller : MonoBehaviour
         {
             StopFootsteps();
         }
+        
     }
 
     
@@ -99,6 +102,12 @@ public class PlayerContoller : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)// called when object collides with a trigger
     {
         Debug.Log("TRigger!");
+        random = Random.Range(0f, 1f);
+        Debug.Log(random);
+        if (random > 0.8f)
+        {
+            SceneManager.LoadScene("TurnBasedRPG");
+        }
     }
     
 } 
