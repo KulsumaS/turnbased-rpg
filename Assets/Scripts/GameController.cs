@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Transactions;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
@@ -57,4 +60,18 @@ public class GameController : MonoBehaviour
           NextTurn(); 
        }
     }
+
+   public void Update()
+   {
+       ChangeScene();
+   }
+
+   public void ChangeScene()
+   {
+       FighterStats currentFighterStats = fighterStats[0];
+       if (currentFighterStats.GetDead())
+       {
+           SceneManager.LoadScene("Overworld");
+       }
+   }
 }
