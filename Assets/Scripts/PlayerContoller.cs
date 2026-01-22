@@ -1,3 +1,4 @@
+using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -38,7 +39,9 @@ public class PlayerContoller : MonoBehaviour
         {
             StopFootsteps();
         }
-        
+
+        //SavePlayer();
+       
     }
 
     
@@ -46,6 +49,8 @@ public class PlayerContoller : MonoBehaviour
     {//get x an y values, it will always be either +1,-1 or 0
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
+        PlayerGameController.control.x = x;
+        PlayerGameController.control.y = y;
 
         playerMoveDirection = new Vector2(x,y).normalized;
          // wants it in a vector format, sets horizontal and vertical forces
@@ -109,6 +114,25 @@ public class PlayerContoller : MonoBehaviour
             SceneManager.LoadScene("TurnBasedRPG");
         }
     }
+
+   // public void SavePlayer()
+    //{
+        //systemSaving.SavePlayer(this);
+    //}
+
+    public void LoadPlayer()
+    {
+       PlayerData data= SystemSaving.LoadPlayer();
+       Vector3 position;
+       position.x = data.position[0];
+       position.y = data.position[1];
+       position.z = data.position[2];
+       transform.position = position;
+
+    }
+
+   
+    
     
 } 
   

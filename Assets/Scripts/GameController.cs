@@ -63,15 +63,18 @@ public class GameController : MonoBehaviour
 
    public void Update()
    {
-       ChangeScene();
+       //hangeScene();
    }
 
-   public void ChangeScene()
-   {
-       FighterStats currentFighterStats = fighterStats[0];
-       if (currentFighterStats.GetDead())
-       {
-           SceneManager.LoadScene("Overworld");
-       }
-   }
+   //public void ChangeScene()
+  // {
+       //FighterStats currentFighterStats = fighterStats[0];
+      // if (currentFighterStats.GetDead())
+      // {
+           
+          // SceneManager.LoadScene("Overworld");
+          // LoadPlayer();
+       //}
+   //}
 }
+
