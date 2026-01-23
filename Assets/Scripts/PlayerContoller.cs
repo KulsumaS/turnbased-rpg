@@ -18,6 +18,13 @@ public class PlayerContoller : MonoBehaviour
     public float footstepSpeed = 5.0f; // the time between each foot step sound
     private float random;
 
+
+    private void Awake()
+    {
+        PlayerGameController.control.Load();
+        Debug.Log("im awkae");
+    }
+    
     private void Start()
     {
         
@@ -41,7 +48,8 @@ public class PlayerContoller : MonoBehaviour
         }
 
         //SavePlayer();
-       
+        PlayerGameController.control.Save();
+
     }
 
     
@@ -51,6 +59,7 @@ public class PlayerContoller : MonoBehaviour
         float y = Input.GetAxisRaw("Vertical");
         PlayerGameController.control.x = x;
         PlayerGameController.control.y = y;
+        PlayerGameController.control.Save();
 
         playerMoveDirection = new Vector2(x,y).normalized;
          // wants it in a vector format, sets horizontal and vertical forces
@@ -120,16 +129,16 @@ public class PlayerContoller : MonoBehaviour
         //systemSaving.SavePlayer(this);
     //}
 
-    public void LoadPlayer()
-    {
-       PlayerData data= SystemSaving.LoadPlayer();
-       Vector3 position;
-       position.x = data.position[0];
-       position.y = data.position[1];
-       position.z = data.position[2];
-       transform.position = position;
+    //public void LoadPlayer()
+    //{
+       //PlayerData data= SystemSaving.LoadPlayer();
+      // Vector3 position;
+      // position.x = data.position[0];
+      // position.y = data.position[1];
+       //position.z = data.position[2];
+       //transform.position = position;
 
-    }
+   // }
 
    
     
