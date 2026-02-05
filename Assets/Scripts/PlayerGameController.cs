@@ -33,6 +33,20 @@ public class PlayerGameController : MonoBehaviour
         
     }
 
+    public void Update()
+    {
+        health = fighterStats.health;
+        magic = fighterStats.magic;
+        melee = fighterStats.melee;
+        magicRange = fighterStats.magicRange;
+        defense = fighterStats.defense;
+        speed = fighterStats.speed;
+        
+        x=playerContoller.x;
+        y=playerContoller.y;
+        Debug.Log(x);
+    }
+
     public void Save()
     {
         BinaryFormatter bf = new BinaryFormatter();

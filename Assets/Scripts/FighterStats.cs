@@ -55,10 +55,7 @@ public class FighterStats : MonoBehaviour, IComparable
         startMagic = magic;
         
         GameControllerObj = GameObject.Find("GameController");
-        PlayerGameController.control.melee = melee;
-        PlayerGameController.control.magicRange = magicRange;
-        PlayerGameController.control.defense = defense;
-        PlayerGameController.control.speed = speed;
+        
         
 
 
@@ -69,7 +66,7 @@ public class FighterStats : MonoBehaviour, IComparable
     {
         health -= damage;
        // PlayerGameController.control.health = health;
-        PlayerGameController.control.Save();
+        
         animator.Play("Damage");
 
         if (health <= 0)// checks if player is dead
@@ -100,8 +97,8 @@ public class FighterStats : MonoBehaviour, IComparable
         if (cost > 0)
         {
             magic -= cost;
-            PlayerGameController.control.magic = magic;
-            PlayerGameController.control.Save();
+            
+            
             xNewMagicScale = magicScale.x * (magic / startMagic);
             magicFill.transform.localScale = new Vector2(xNewMagicScale, magicScale.y);  
         }

@@ -21,7 +21,7 @@ public class PlayerContoller : MonoBehaviour
 
     private void Awake()
     {
-        PlayerGameController.control.Load();
+       // PlayerGameController.control.Load();
         Debug.Log("im awkae");
     }
     
@@ -30,6 +30,7 @@ public class PlayerContoller : MonoBehaviour
         
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        PlayerGameController.control.Load();
     }
    
     
@@ -49,6 +50,7 @@ public class PlayerContoller : MonoBehaviour
 
         //SavePlayer();
         PlayerGameController.control.Save();
+        PlayerGameController.control.Update();
 
     }
 
@@ -57,10 +59,7 @@ public class PlayerContoller : MonoBehaviour
     {//get x an y values, it will always be either +1,-1 or 0
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
-        PlayerGameController.control.x = x;
-        PlayerGameController.control.y = y;
-        PlayerGameController.control.Save();
-
+        
         playerMoveDirection = new Vector2(x,y).normalized;
          // wants it in a vector format, sets horizontal and vertical forces
     }
