@@ -17,6 +17,7 @@ public class PlayerGameController : MonoBehaviour
     
     public float x;
     public float y;
+    private string saveLocation;
 
     private void Awake()
     {
@@ -33,9 +34,15 @@ public class PlayerGameController : MonoBehaviour
         
     }
 
-    public void Update()
+    void Start()
     {
-        health = fighterStats.health;
+        saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
+        
+    }
+
+    /*public void Update()
+    {
+         health = fighterStats.health;
         magic = fighterStats.magic;
         melee = fighterStats.melee;
         magicRange = fighterStats.magicRange;
@@ -45,11 +52,19 @@ public class PlayerGameController : MonoBehaviour
         x=playerContoller.x;
         y=playerContoller.y;
         Debug.Log(x);
-    }
+    }*/
 
     public void Save()
     {
-        BinaryFormatter bf = new BinaryFormatter();
+        SaveData saveData = new SaveData();
+        {
+            playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        }
+        
+        File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
+        
+
+        /*BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/playerData.dat");
 
         PlayerData data = new PlayerData();
@@ -61,15 +76,27 @@ public class PlayerGameController : MonoBehaviour
         data.speed = speed;
         data.x = x;
         data.y = y;
-        
+
         bf.Serialize(file, data);
         file.Close();
-        Debug.Log("PlayerData saved");
+        Debug.Log("PlayerData saved");*/
+
     }
 
     public void Load()
     {
-        if (File.Exists(Application.persistentDataPath + "/playerData.dat"))
+        if (File.Exists(saveLocation))
+        {
+            SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
+            
+            GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
+        }
+        else
+        {
+            Save();
+        }
+        
+        /*if (File.Exists(Application.persistentDataPath + "/playerData.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/playerData.dat",FileMode.Open);
@@ -85,12 +112,13 @@ public class PlayerGameController : MonoBehaviour
             x = data.x;
             y = data.y;
 
-        }
+        }*/
     }
     
 }
-[Serializable]
-class PlayerData
+/*
+[System.Serializable]
+public class PlayerData
 {
     public float health;
     public float magic;
@@ -98,9 +126,9 @@ class PlayerData
     public float magicRange;
     public float defense;
     public float speed;
-            
-    public float x;
-    public float y; 
+    
+    public Vector2 playerPosition;
 }
+*/
 
 

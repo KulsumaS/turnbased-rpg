@@ -50,7 +50,7 @@ public class PlayerContoller : MonoBehaviour
 
         //SavePlayer();
         PlayerGameController.control.Save();
-        PlayerGameController.control.Update();
+        
 
     }
 
