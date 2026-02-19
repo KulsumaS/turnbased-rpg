@@ -19,18 +19,14 @@ public class PlayerContoller : MonoBehaviour
     private float random;
 
 
-    private void Awake()
-    {
-       // PlayerGameController.control.Load();
-        Debug.Log("im awkae");
-    }
+    
     
     private void Start()
     {
         
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        PlayerGameController.control.Load();
+        
     }
    
     
@@ -48,8 +44,6 @@ public class PlayerContoller : MonoBehaviour
             StopFootsteps();
         }
 
-        //SavePlayer();
-        PlayerGameController.control.Save();
         
 
     }
@@ -123,22 +117,7 @@ public class PlayerContoller : MonoBehaviour
         }
     }
 
-   // public void SavePlayer()
-    //{
-        //systemSaving.SavePlayer(this);
-    //}
-
-    //public void LoadPlayer()
-    //{
-       //PlayerData data= SystemSaving.LoadPlayer();
-      // Vector3 position;
-      // position.x = data.position[0];
-      // position.y = data.position[1];
-       //position.z = data.position[2];
-       //transform.position = position;
-
-   // }
-
+   
    
     
     

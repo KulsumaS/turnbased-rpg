@@ -1,15 +1,7 @@
 using UnityEngine;
-[System.Serializable]
-public class SaveData 
+
+[System.Serializable]// allows to pack and an unpack data to a text based format
+public class SaveData
 {
-        public float health;
-        public float magic;
-        public float melee;
-        public float magicRange;
-        public float defense;
-        public float speed;
-    
-        public Vector2 playerPosition;
+    public Vector3 playerPosition;
 }
-
-

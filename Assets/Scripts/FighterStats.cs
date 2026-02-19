@@ -43,7 +43,6 @@ public class FighterStats : MonoBehaviour, IComparable
     
     void Awake()
     {
-        PlayerGameController.control.Load();
         Debug.Log("wakey wakey ");
         healthTransform = healthFill.GetComponent<RectTransform>();
         healthScale = healthFill.transform.localScale;
@@ -65,7 +64,6 @@ public class FighterStats : MonoBehaviour, IComparable
     public void ReceiveDamage(float damage)
     {
         health -= damage;
-       // PlayerGameController.control.health = health;
         
         animator.Play("Damage");
 
@@ -126,11 +124,8 @@ public class FighterStats : MonoBehaviour, IComparable
         return nex;
     }
 
-    public void Update()
-    {
-        PlayerGameController.control.Save();
-    }
-
+    
+    
     
     
     
