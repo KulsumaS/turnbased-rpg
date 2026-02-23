@@ -43,7 +43,7 @@ public class FighterStats : MonoBehaviour, IComparable
     
     void Awake()
     {
-        Debug.Log("wakey wakey ");
+        
         healthTransform = healthFill.GetComponent<RectTransform>();
         healthScale = healthFill.transform.localScale;
         
