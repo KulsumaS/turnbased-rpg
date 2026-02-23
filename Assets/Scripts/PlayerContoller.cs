@@ -26,7 +26,8 @@ public class PlayerContoller : MonoBehaviour
         
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        
+        Invoke("OnTriggerEnter2D", 5);
+
     }
    
     
@@ -106,7 +107,7 @@ public class PlayerContoller : MonoBehaviour
       
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)// called when object collides with a trigger
+    public void OnTriggerEnter2D(Collider2D collider)// called when object collides with a trigger
     {
         Debug.Log("TRigger!");
         random = Random.Range(0f, 1f);
