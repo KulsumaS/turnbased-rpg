@@ -10,7 +10,6 @@ public class SaveContoller : MonoBehaviour
     {
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
         
-        LoadGame();
     }
 
     public void SaveGame()

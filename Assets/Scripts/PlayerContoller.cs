@@ -24,9 +24,10 @@ public class PlayerContoller : MonoBehaviour
     private void Start()
     {
         
+        Invoke("OnTriggerEnter2D",5f);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        Invoke("OnTriggerEnter2D", 5);
+        
 
     }
    
