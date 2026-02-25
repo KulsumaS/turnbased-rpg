@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
-    public SaveContoller saveContoller;
     private List<FighterStats> fighterStats;
     [SerializeField] private GameObject battleMenu;// battle menu is the option menu that lets the player attack
     public Text battleText;
