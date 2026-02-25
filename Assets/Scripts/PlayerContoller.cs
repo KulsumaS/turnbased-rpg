@@ -1,4 +1,5 @@
 using UnityEditor.Overlays;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,7 +25,6 @@ public class PlayerContoller : MonoBehaviour
     private void Start()
     {
         
-        Invoke("OnTriggerEnter2D",5f);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         
@@ -109,6 +109,11 @@ public class PlayerContoller : MonoBehaviour
     }
 
     public void OnTriggerEnter2D(Collider2D collider)// called when object collides with a trigger
+    {
+        Invoke("Randomnum",5f);
+    }
+
+    void Randomnum()
     {
         Debug.Log("TRigger!");
         random = Random.Range(0f, 1f);
