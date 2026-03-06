@@ -12,9 +12,11 @@ public class GameController : MonoBehaviour
     private List<FighterStats> fighterStats;
     [SerializeField] private GameObject battleMenu;// battle menu is the option menu that lets the player attack
     public Text battleText;
+    // public RpgSaving rpgSaving;
     void Start()
     {
        //saveContoller.LoadGame();
+       // rpgSaving.LoadRpg();
         // allows as to decide whether the enemy or player goes first based on speed
         fighterStats = new List<FighterStats>();
         GameObject hero = GameObject.FindGameObjectWithTag("Hero");
@@ -65,6 +67,7 @@ public class GameController : MonoBehaviour
    public void Update()
    {
        ChangeScene();
+       // rpgSaving.SaveRpg();
        //saveContoller.SaveGame();
        
    }

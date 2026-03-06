@@ -18,13 +18,13 @@ public class PlayerContoller : MonoBehaviour
     private bool playingFootsteps = false;
     public float footstepSpeed = 5.0f; // the time between each foot step sound
     private float random;
-
+    private bool call = false;
 
     
     
     private void Start()
     {
-        
+        call = false;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         
@@ -45,8 +45,10 @@ public class PlayerContoller : MonoBehaviour
         {
             StopFootsteps();
         }
-
+        Invoke("callset",5f);
         
+
+
 
     }
 
@@ -110,7 +112,11 @@ public class PlayerContoller : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collider)// called when object collides with a trigger
     {
-        Invoke("Randomnum",5f);
+        if (call == true)
+        {
+           Randomnum();
+        }
+        
     }
 
     void Randomnum()
@@ -123,6 +129,13 @@ public class PlayerContoller : MonoBehaviour
             SceneManager.LoadScene("TurnBasedRPG");
         }
     }
+
+    void callset()
+    {
+        call = true;
+    }
+    
+    
 
    
    
