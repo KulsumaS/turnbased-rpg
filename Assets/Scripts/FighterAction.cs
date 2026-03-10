@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FighterAction : MonoBehaviour
@@ -41,7 +42,7 @@ public class FighterAction : MonoBehaviour
         }
         else
         {
-            Debug.Log("Run");
+            SceneManager.LoadScene("Overworld");
         }
 
     }
