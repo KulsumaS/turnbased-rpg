@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Transactions;
+using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
+    public FighterStats herostats;
     private List<FighterStats> fighterStats;
     [SerializeField] private GameObject battleMenu;// battle menu is the option menu that lets the player attack
     public Text battleText;
@@ -75,12 +77,19 @@ public class GameController : MonoBehaviour
    private void ChangeScene()
    {
        FighterStats currentFighterStats = fighterStats[0];
-       if (currentFighterStats.GetDead())
+       if (herostats.health == 0)
+       {
+           SceneManager.LoadScene("Gameover");
+       }
+       else if (currentFighterStats.GetDead())
        {
            
           SceneManager.LoadScene("Overworld");
           //LoadPlayer();
        }
    }
+
+ 
+   
 }
 
